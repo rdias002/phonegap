@@ -32,6 +32,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+		document.getElementById("getinfo").addEventListener("click",getinfo);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -42,5 +43,8 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
+function getinfo(){
+	var det = document.getElementById("details");
+	det.value="Device Model:"+device.model+"\nDevice Version:"+device.version+"\nDevice UUID:"+device.uuid;	
+}
 app.initialize();
